@@ -8,7 +8,8 @@ configuration so that you don't have to. The idea is the same as
 Configuration
 -------------
 
-NBP is configured to use the following:
+NBP builds on top of an express generated application, providing better folder
+structure and separated configuration logic. NBP is configured to use the following:
 
 ### Express
 
@@ -27,9 +28,3 @@ https://github.com/kof/node-jqtpl
 Dynamic stylesheet language.
 
 http://lesscss.org/
-
-Info
-----
-
-NBP builds on top of an express generated application, providing better folder
-structure and separated configuration logic.
