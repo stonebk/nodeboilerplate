@@ -28,3 +28,9 @@ https://github.com/kof/node-jqtpl
 Dynamic stylesheet language.
 
 http://lesscss.org/
+
+### Optimist
+
+Command line option parsing.
+
+https://github.com/substack/node-optimist
