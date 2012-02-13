@@ -1,6 +1,8 @@
 Node Boilerplate
 ================
 
+http://www.nodeboilerplate.com/
+
 Node Boilerplate (NBP) is a template node application that sets up some basic
 configuration so that you don't have to. The idea is the same as
 [HTML5 Boilerplate](http://html5boilerplate.com/) but for node applications.
