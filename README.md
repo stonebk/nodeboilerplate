@@ -36,3 +36,10 @@ http://lesscss.org/
 Command line option parsing.
 
 https://github.com/substack/node-optimist
+
+TODO
+----
+
+* Add reset stylesheet
+* Less compilation / Error handling
+* Preboot
