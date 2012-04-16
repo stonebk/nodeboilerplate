@@ -19,6 +19,11 @@ Create boilerplate:
     mkdir mysite
     nodeboilerplate mysite
 
+Documentation
+-------------
+
+[Annotated Source](http://stonebk.github.com/nodeboilerplate/)
+
 Configuration
 -------------
 
