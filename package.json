@@ -4,6 +4,6 @@
   "version": "0.0.1",
   "author": "Brian Stone",
   "keywords": ["boilerplate", "nodeboilerplate", "template"],
-  "repository": "git://github.com/stonebk/node-boilerplate.git",
+  "repository": "git://github.com/stonebk/nodeboilerplate.git",
   "bin": { "nodeboilerplate": "./bin/nodeboilerplate" }
 }
