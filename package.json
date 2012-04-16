@@ -1,11 +1,9 @@
 {
-    "name": "application-name"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.8"
-    , "jqtpl": ">= 0.0.1"
-    , "less": ">= 0.0.1"
-    , "optimist": ">= 0.0.1"
-  }
+  "name": "nodeboilerplate",
+  "description": "Boilerplate Node Application",
+  "version": "0.0.1",
+  "author": "Brian Stone",
+  "keywords": ["boilerplate", "nodeboilerplate", "template"],
+  "repository": "git://github.com/stonebk/node-boilerplate.git",
+  "bin": { "nodeboilerplate": "./bin/nodeboilerplate" }
 }
