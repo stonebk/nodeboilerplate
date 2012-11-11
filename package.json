@@ -1,7 +1,7 @@
 {
   "name": "nodeboilerplate",
   "description": "Boilerplate Node Application",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Brian Stone",
   "keywords": ["boilerplate", "nodeboilerplate", "template"],
   "repository": "git://github.com/stonebk/nodeboilerplate.git",
