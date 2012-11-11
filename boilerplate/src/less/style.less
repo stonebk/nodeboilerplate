@@ -9,3 +9,19 @@ body {
 a {
   color: @color;
 }
+
+.code {
+    margin: 20px 50px;
+    background-color: #000;
+    color: #fff;
+    border: 2px dashed #fff;
+    font-family: "Courier New", monospace;
+
+    p {
+        margin: 10px 20px;
+        &::before {
+            content: "$ ";
+            color: #0AFF0A;
+        }
+    }
+}
