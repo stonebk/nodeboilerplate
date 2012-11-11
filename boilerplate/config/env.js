@@ -1,3 +1,5 @@
+var util = require(__dirname + '/../libs/util.js');
+
 module.exports = function (express, app) {
 
     // Common configuration
@@ -7,6 +9,10 @@ module.exports = function (express, app) {
         app.set('views', __dirname + '/../views');
         app.set('view engine', 'jqtpl');
         app.register('.jqtpl', require('jqtpl').express);
+
+        // Make sure build folders exist
+        util.mkdir(__dirname + '/../build');
+        util.mkdir(__dirname + '/../build/css');
 
         // Configure LESS compiler
         app.use('/css', express.compiler({
