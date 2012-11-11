@@ -9,10 +9,10 @@ module.exports = function (express, app) {
         app.register('.jqtpl', require('jqtpl').express);
 
         // Configure LESS compiler
-        app.use(express.compiler({
+        app.use('/css', express.compiler({
             enable: ['less'],
-            src: __dirname + '/../src/',
-            dest: __dirname + '/../build/'
+            src: __dirname + '/../src/less',
+            dest: __dirname + '/../build/css'
         }));
 
         app.use(app.router);
