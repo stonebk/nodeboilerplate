@@ -6,22 +6,23 @@ module.exports = function (express, app) {
     app.configure(function () {
 
         // Configure jQuery template engine
+        express.version = require('express/package.json').version;
         app.set('views', __dirname + '/../views');
         app.set('view engine', 'jqtpl');
-        app.register('.jqtpl', require('jqtpl').express);
+        app.set('layout', true);
+        app.engine('jqtpl', require('jqtpl').__express);
+
+        app.use(app.router);
 
         // Make sure build folders exist
         util.mkdir(__dirname + '/../build');
         util.mkdir(__dirname + '/../build/css');
 
         // Configure LESS compiler
-        app.use('/css', express.compiler({
-            enable: ['less'],
+        app.use('/css', require('less-middleware')({
             src: __dirname + '/../src/less',
             dest: __dirname + '/../build/css'
         }));
-
-        app.use(app.router);
 
         // Create static file servers for the build and public folders
         app.use(express.static(__dirname + '/../build'));
