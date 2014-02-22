@@ -4,7 +4,7 @@
   , "private": true
   , "dependencies": {
       "express": "3.4.8"
-    , "jqtpl": ">= 0.0.1"
+    , "mu2": "0.5.x"
     , "less-middleware": "*"
     , "optimist": ">= 0.0.1"
   }

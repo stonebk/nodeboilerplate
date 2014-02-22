@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+        <p>Welcome to {{title}}. {{title}} (NBP) is a quick and easy way to get started working with node -- think <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> but for a node express application. Get a server running with these simple commands:</p>
+        <div class="code">
+            <p>npm install -g nodeboilerplate</p>
+            <p>mkdir mysite && cd mysite</p>
+            <p>nodeboilerplate</p>
+            <p>npm install</p>
+            <p>node app.js</p>
+        </div>
+        <p>The main goal behind NBP was to provide common configuration and tools without all the clutter found in other boilerplate applications. Read more about the project on <a href="https://github.com/stonebk/nodeboilerplate">GitHub</a>.</p>
+        {{> github.mustache}}
+    </body>
+</html>
