@@ -3,53 +3,58 @@ Node Boilerplate
 
 http://www.nodeboilerplate.com/
 
-Node Boilerplate (NBP) is a template node application that sets up some basic
-configuration so that you don't have to. The idea is the same as
-[HTML5 Boilerplate](http://html5boilerplate.com/) but for node applications.
+Node Boilerplate is a tool for generating boilerplate web applications that
+run on node.js. A generated application comes already configured with common web
+development tools, so you can spend less time configuring and more time coding.
+
 
 Installation
 ------------
 
-Install module:
+One time module installation:
 
     npm install -g nodeboilerplate
 
-Create boilerplate:
+Create new boilerplate application:
 
     mkdir mysite
     nodeboilerplate mysite
+    
+Use alternate templating language:
 
-Documentation
--------------
+    mkdir mysite
+    nodeboilerplate --template jqtpl mysite
 
-[Annotated Source](http://stonebk.github.com/nodeboilerplate/)
 
 Configuration
 -------------
 
-NBP builds on top of an express generated application, providing better folder
-structure and separated configuration logic. NBP is configured to use the following:
+### Core
 
-### Express
-
-Sinatra inspired web development framework.
+###### Express
 
 http://expressjs.com/
 
-### jQuery Templates
+###### Optimist
 
-Port of jQuery's Template Engine for node.
+https://github.com/substack/node-optimist
+
+### Template Engines
+
+###### {{ mustache }} - Default
+
+https://github.com/raycmorgan/Mu
+
+http://mustache.github.io/mustache.5.html (documentation)
+
+###### jQuery Templates
 
 https://github.com/kof/node-jqtpl
 
-### LESS
+### Stylesheet Language
 
-Dynamic stylesheet language.
+###### LESS
 
 http://lesscss.org/
 
-### Optimist
 
-Command line option parsing.
-
-https://github.com/substack/node-optimist
