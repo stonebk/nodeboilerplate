@@ -18,17 +18,19 @@ var version = '0.0.1';
 
 var usage = ''
   + '\n'
-  + '  Usage: nbp [options] [path]\n'
+  + '  Usage: nodeboilerplate [options] [path]\n'
   + '\n'
   + '  Options:\n'
-  + '    -v, --version            output framework version\n'
-  + '    -h, --help               output help information\n'
+  + '    -v, --version                    output framework version\n'
+  + '    -h, --help                       output help information\n'
+  + '    -t, --template [mustache|jqtpl]  specify template language, (default: mustache)\n'
   ;
 
 // Parse arguments
 
 var args = process.argv.slice(2)
-  , path = '.';
+  , path = '.'
+  , application = 'boilerplate-mustache';
 
 while (args.length) {
   var arg = args.shift();
@@ -41,37 +43,48 @@ while (args.length) {
     case '--version':
       abort(version);
       break;
+    case '-t':
+    case '--template':
+      arg = args.shift();
+      switch (arg) {
+        // default: boilerplate-mustache
+        case 'jqtpl':
+          application = 'boilerplate-jqtpl';
+          break;
+      }
+      break;
     default:
-        path = arg;
+      path = arg;
   }
 }
 
 // Generate application
 
-(function createApplication(path) {
+(function createApplication(path, application) {
   emptyDirectory(path, function(empty){
     if (empty) {
-      createApplicationAt(path);
+      createApplicationAt(path, application);
     } else {
       confirm('destination is not empty, continue? ', function(ok){
         if (ok) {
           process.stdin.destroy();
-          createApplicationAt(path);
+          createApplicationAt(path, application);
         } else {
           abort('aborting');
         }
       });
     }
   });
-})(path);
+})(path, application);
 
 /**
  * Create application at the given directory `path`.
  *
  * @param {String} path
+ * @param {String} application
  */
 
-function createApplicationAt(path) {
+function createApplicationAt(path, application) {
   console.log();
   process.on('exit', function(){
     console.log();
@@ -83,7 +96,9 @@ function createApplicationAt(path) {
     console.log();
   });
 
-  copyDir(__dirname + '/../boilerplate', path);
+    console.log(__dirname + '/../' + application);
+
+  copyDir(__dirname + '/../' + application, path);
 }
 
 /**
