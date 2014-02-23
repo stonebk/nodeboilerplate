@@ -7,25 +7,18 @@ Node Boilerplate is a tool for generating boilerplate web applications that
 run on node.js. A generated application comes already configured with common web
 development tools, so you can spend less time configuring and more time coding.
 
+Quickstart
+----------
 
-Installation
-------------
-
-One time module installation:
-
-    npm install -g nodeboilerplate
-
-Create new boilerplate application:
-
-    nodeboilerplate mysite
-    
-Use alternate templating language:
-
-    nodeboilerplate --template jqtpl mysite
-
+    npm install -g nodeboilerplate  # Install nodeboilerplate
+    nodeboilerplate mysite          # Create new boilerplate app
+    cd mysite && npm install        # Install app dependencies
+    node app.js                     # Run app
 
 Configuration
 -------------
+
+    nodeboilerplate --help          # See all configuration options
 
 ### Core
 
@@ -39,15 +32,15 @@ https://github.com/substack/node-optimist
 
 ### Template Engines
 
-###### {{ mustache }} - Default
+###### {{ mustache }} - DEFAULT
 
 https://github.com/raycmorgan/Mu
-
-http://mustache.github.io/mustache.5.html (documentation)
 
 ###### jQuery Templates
 
 https://github.com/kof/node-jqtpl
+
+    nodeboilerplate --template jqtpl mysite
 
 ### Stylesheet Language
 
