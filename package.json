@@ -1,9 +1,13 @@
 {
   "name": "nodeboilerplate",
   "description": "Boilerplate Node Application",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Brian Stone",
   "keywords": ["boilerplate", "nodeboilerplate", "template"],
   "repository": "git://github.com/stonebk/nodeboilerplate.git",
-  "bin": { "nodeboilerplate": "./bin/nodeboilerplate" }
+  "bin": { "nodeboilerplate": "./bin/nodeboilerplate" },
+  "dependencies": {
+    "commander": "1.3.2",
+    "mkdirp": "0.3.5"
+  }
 }

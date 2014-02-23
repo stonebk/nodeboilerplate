@@ -17,12 +17,10 @@ One time module installation:
 
 Create new boilerplate application:
 
-    mkdir mysite
     nodeboilerplate mysite
     
 Use alternate templating language:
 
-    mkdir mysite
     nodeboilerplate --template jqtpl mysite
 
 

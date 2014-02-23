@@ -4,68 +4,38 @@
  * Module dependencies.
  */
 
-var fs = require('fs');
+var program = require('commander')
+  , mkdirp = require('mkdirp')
+  , pkg = require('../package.json')
+  , version = pkg.version
+  , fs = require('fs');
 
-/**
- * Framework version.
- */
+// CLI
 
-var version = '0.0.1';
+program
+  .version(version)
+  .usage('[options] [dir]')
+  .option('-t, --template <engine>', 'specify templating <engine> (mustache|jqtpl) (defaults to mustache)')
+  .option('-f, --force', 'force on non-empty directory')
+  .parse(process.argv);
 
-/**
- * Usage documentation.
- */
+// Path
 
-var usage = ''
-  + '\n'
-  + '  Usage: nodeboilerplate [options] [path]\n'
-  + '\n'
-  + '  Options:\n'
-  + '    -v, --version                    output framework version\n'
-  + '    -h, --help                       output help information\n'
-  + '    -t, --template [mustache|jqtpl]  specify template language, (default: mustache)\n'
-  ;
+var path = program.args.shift() || '.';
 
-// Parse arguments
+// Template engine
 
-var args = process.argv.slice(2)
-  , path = '.'
-  , application = 'boilerplate-mustache';
-
-while (args.length) {
-  var arg = args.shift();
-  switch (arg) {
-    case '-h':
-    case '--help':
-      abort(usage);
-      break;
-    case '-v':
-    case '--version':
-      abort(version);
-      break;
-    case '-t':
-    case '--template':
-      arg = args.shift();
-      switch (arg) {
-        // default: boilerplate-mustache
-        case 'jqtpl':
-          application = 'boilerplate-jqtpl';
-          break;
-      }
-      break;
-    default:
-      path = arg;
-  }
-}
+var application = 'boilerplate-mustache';
+if (program.template === 'jqtpl') application = 'boilerplate-jqtpl';
 
 // Generate application
 
 (function createApplication(path, application) {
   emptyDirectory(path, function(empty){
-    if (empty) {
+    if (empty || program.force) {
       createApplicationAt(path, application);
     } else {
-      confirm('destination is not empty, continue? ', function(ok){
+      program.confirm('destination is not empty, continue? ', function(ok){
         if (ok) {
           process.stdin.destroy();
           createApplicationAt(path, application);
@@ -95,8 +65,6 @@ function createApplicationAt(path, application) {
     console.log('     $ node app');
     console.log();
   });
-
-    console.log(__dirname + '/../' + application);
 
   copyDir(__dirname + '/../' + application, path);
 }
@@ -156,17 +124,18 @@ function copy(src, dest) {
 }
 
 /**
- * Mkdir
+ * Mkdir -p.
  *
  * @param {String} path
  * @param {Function} fn
  */
 
 function mkdir(path, fn) {
-    fs.mkdir(path, 0755, function(){
-        console.log('   \033[36mcreate\033[0m : ' + path);
-        fn && fn();
-    });
+  mkdirp(path, 0755, function(err){
+    if (err) throw err;
+    console.log('   \033[36mcreate\033[0m : ' + path);
+    fn && fn();
+  });
 }
 
 /**
@@ -179,19 +148,6 @@ function mkdir(path, fn) {
 function write(path, str) {
   fs.writeFile(path, str);
   console.log('   \x1b[36mcreate\x1b[0m : ' + path);
-}
-
-/**
- * Prompt confirmation with the given `msg`.
- *
- * @param {String} msg
- * @param {Function} fn
- */
-
-function confirm(msg, fn) {
-  prompt(msg, function(val){
-    fn(/^ *y(es)?/i.test(val));
-  });
 }
 
 /**
