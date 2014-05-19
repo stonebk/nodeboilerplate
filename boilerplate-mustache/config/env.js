@@ -33,8 +33,7 @@ module.exports = function (express, app) {
         util.mkdir(__dirname + '/../build/css');
 
         // Configure LESS compiler
-        app.use('/css', require('less-middleware')({
-            src: __dirname + '/../src/less',
++       app.use('/css', require('less-middleware')(__dirname + '/../src/less', {
             dest: __dirname + '/../build/css'
         }));
 
