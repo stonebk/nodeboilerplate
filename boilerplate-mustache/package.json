@@ -5,7 +5,7 @@
   , "dependencies": {
       "express": "3.4.8"
     , "mu2": "0.5.x"
-    , "less-middleware": "*"
+    , "less-middleware": "1.0.*"
     , "optimist": ">= 0.0.1"
   }
 }
