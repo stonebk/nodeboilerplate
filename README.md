@@ -1,8 +1,6 @@
 Node Boilerplate
 ================
 
-http://www.nodeboilerplate.com/
-
 Node Boilerplate is a tool for generating boilerplate web applications that
 run on node.js. A generated application comes already configured with common web
 development tools, so you can spend less time configuring and more time coding.
